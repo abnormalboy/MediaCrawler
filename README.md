@@ -69,18 +69,6 @@
 | 贴吧   | ✅          | ✅              | ✅        | ✅              | ✅          | ✅        | ✅              |
 | 知乎   | ✅          | ✅              | ✅        | ✅              | ✅          | ✅        | ✅              |
 
-### 小红书 App ADB 标准流程（推荐，不易掉登录）
-
-网页 CDP 容易把账号踢下线。已登录的手机 App 可用标准流程：搜索一次 → 打开笔记 → 复制链接 → 返回列表。
-
-```bash
-uv run python tools/xhs_adb.py status
-uv run python tools/xhs_adb.py search -k 吧唧 -p 1 --open 5
-./scripts/xhs_adb_search.sh 吧唧 5 1
-```
-
-详见 [docs/ADB小红书标准流程.md](docs/ADB小红书标准流程.md)。
-
 <strong>MediaCrawlerPro 重磅发布！开源不易，欢迎订阅支持</strong>
 
 > 专注于学习成熟项目的架构设计，不仅仅是爬虫技术，Pro 版本的代码设计思路同样值得深入学习！
