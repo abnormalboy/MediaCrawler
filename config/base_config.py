@@ -133,8 +133,11 @@ STOP_WORDS_FILE = "./docs/hit_stopwords.txt"
 # Chinese font file path
 FONT_PATH = "./docs/STZHONGS.TTF"
 
-# Crawl interval
-CRAWLER_MAX_SLEEP_SEC = 2
+# 搜索翻页、拉笔记详情的间隔（秒）
+CRAWLER_MAX_SLEEP_SEC = 10
+
+# 拉评论的间隔（秒）
+CRAWLER_COMMENT_SLEEP_SEC = 10
 
 # 是否禁用 SSL 证书验证。仅在使用企业代理、Burp Suite、mitmproxy 等会注入自签名证书的中间人代理时设为 True。
 # 警告：禁用 SSL 验证将使所有流量暴露于中间人攻击风险，请勿在生产环境中开启。

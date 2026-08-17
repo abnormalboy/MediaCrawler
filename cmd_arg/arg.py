@@ -275,6 +275,14 @@ async def parse_cmd(argv: Optional[Sequence[str]] = None):
                 rich_help_panel="Comment Configuration",
             ),
         ] = config.CRAWLER_MAX_COMMENTS_COUNT_SINGLENOTES,
+        comment_sleep: Annotated[
+            int,
+            typer.Option(
+                "--comment_sleep",
+                help="Interval in seconds between comment API requests (Xiaohongshu)",
+                rich_help_panel="Comment Configuration",
+            ),
+        ] = config.CRAWLER_COMMENT_SLEEP_SEC,
         crawler_max_notes_count: Annotated[
             int,
             typer.Option(
@@ -358,6 +366,7 @@ async def parse_cmd(argv: Optional[Sequence[str]] = None):
         config.SAVE_DATA_OPTION = save_data_option.value
         config.COOKIES = cookies
         config.CRAWLER_MAX_COMMENTS_COUNT_SINGLENOTES = max_comments_count_singlenotes
+        config.CRAWLER_COMMENT_SLEEP_SEC = comment_sleep
         config.CRAWLER_MAX_NOTES_COUNT = crawler_max_notes_count
         config.MAX_CONCURRENCY_NUM = max_concurrency_num
         config.SAVE_DATA_PATH = save_data_path

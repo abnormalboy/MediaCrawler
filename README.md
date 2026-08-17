@@ -69,7 +69,17 @@
 | 贴吧   | ✅          | ✅              | ✅        | ✅              | ✅          | ✅        | ✅              |
 | 知乎   | ✅          | ✅              | ✅        | ✅              | ✅          | ✅        | ✅              |
 
+### 小红书 App ADB 标准流程（推荐，不易掉登录）
 
+网页 CDP 容易把账号踢下线。已登录的手机 App 可用标准流程：搜索一次 → 打开笔记 → 复制链接 → 返回列表。
+
+```bash
+uv run python tools/xhs_adb.py status
+uv run python tools/xhs_adb.py search -k 吧唧 -p 1 --open 5
+./scripts/xhs_adb_search.sh 吧唧 5 1
+```
+
+详见 [docs/ADB小红书标准流程.md](docs/ADB小红书标准流程.md)。
 
 <strong>MediaCrawlerPro 重磅发布！开源不易，欢迎订阅支持</strong>
 
@@ -159,7 +169,8 @@ uv run playwright install
 # 在 config/base_config.py 查看配置项目功能，写的有中文注释
 
 # 从配置文件中读取关键词搜索相关的帖子并爬取帖子信息与评论
-uv run main.py --platform xhs --lt qrcode --type search
+# 拉评论间隔默认 10 秒（CRAWLER_COMMENT_SLEEP_SEC），可用 --comment_sleep 15 再拉长
+uv run main.py --platform xhs --lt qrcode --type search --get_comment yes --comment_sleep 10
 
 # 从配置文件中读取指定的帖子ID列表获取指定帖子的信息与评论信息
 uv run main.py --platform xhs --lt qrcode --type detail
